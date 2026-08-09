@@ -7,69 +7,140 @@
     </header>
   </div>
 
-  <div [appParallax]="0.04">
-    <p class="projects__kicker reveal" appReveal>{{ t()('projects.featured') }}</p>
-  </div>
+  <div class="projects__carousel reveal" appReveal [appRevealThreshold]="0.05">
+    <p class="projects__kicker">{{ t()('projects.featured') }}</p>
 
-  <div class="projects__grid" [appParallax]="0.03">
-    @for (project of featured; track project.id; let i = $index) {
-      <article
-        class="project-card reveal"
-        [style.--accent]="project.accent"
-        appTilt
-          appReveal
-          [appRevealDelay]="i * 100"
+    <div class="projects__carousel-inner" [appParallax]="0.03">
+      <div
+        #carousel="appCarousel"
+        class="carousel"
+        appCarousel
+        [appCarouselCount]="featured.length"
+        tabindex="0"
+        role="region"
+        aria-roledescription="carousel"
+        [attr.aria-label]="t()('nav.projects')"
+      >
+        <div
+          #stage
+          class="carousel__stage"
+          [class.is-dragging]="carousel.isDragging()"
+          [style.height.px]="stageHeight() || null"
+          [style.transform]="'translateX(' + carousel.dragOffset() + 'px)'"
         >
-          <header class="project-card__header">
-            <div class="project-card__badge">
-              <span class="project-card__initials">{{ project.initials }}</span>
-            </div>
-            <span class="project-card__year">{{ project.year }}</span>
-          </header>
+          @for (project of featured; track project.id; let i = $index) {
+            <article
+              class="project-card"
+              [class.is-active]="position(i) === 0"
+              [style]="cardStyle(i)"
+              role="group"
+              aria-roledescription="slide"
+              [attr.aria-label]="(i + 1) + ' / ' + featured.length"
+              [attr.aria-hidden]="position(i) !== 0"
+            >
+              <div class="project-card__inner" appTilt>
+                <header class="project-card__header">
+                  <div class="project-card__badge">
+                    <span class="project-card__initials">{{ project.initials }}</span>
+                  </div>
+                  <span class="project-card__year">{{ project.year }}</span>
+                </header>
 
-          <div class="project-card__body">
-            <h3 class="project-card__name">{{ tr()(project.name) }}</h3>
-            <p class="project-card__tagline">{{ tr()(project.tagline) }}</p>
-            <p class="project-card__description">{{ tr()(project.description) }}</p>
+                <div class="project-card__body">
+                  <h3 class="project-card__name">{{ tr()(project.name) }}</h3>
+                  <p class="project-card__tagline">{{ tr()(project.tagline) }}</p>
+                  <p class="project-card__description">{{ tr()(project.description) }}</p>
 
-            @if (project.highlights.length > 0) {
-              <ul class="project-card__highlights">
-                @for (item of project.highlights; track item) {
-                  <li>{{ tr()(item) }}</li>
-                }
-              </ul>
-            }
+                  @if (project.highlights.length > 0) {
+                    <ul class="project-card__highlights">
+                      @for (item of project.highlights; track item) {
+                        <li>{{ tr()(item) }}</li>
+                      }
+                    </ul>
+                  }
 
-            <div class="project-card__stack">
-              @for (tech of project.stack; track tech) {
-                <span class="pill">{{ tech }}</span>
-              }
-            </div>
-          </div>
+                  <div class="project-card__stack">
+                    @for (tech of project.stack; track tech) {
+                      <span class="pill">{{ tech }}</span>
+                    }
+                  </div>
+                </div>
 
-          <footer class="project-card__footer">
-            @for (link of project.links; track link.url) {
-              <a
-                class="btn btn--ghost btn--sm"
-                [href]="link.url"
-                target="_blank"
-                rel="noopener"
-              >
-                <svg
-                  class="project-card__link-icon"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                  />
-                </svg>
-                {{ tr()(link.label) }}
-              </a>
-            }
-          </footer>
-        </article>
-    }
+                <footer class="project-card__footer">
+                  @for (link of project.links; track link.url) {
+                    <a
+                      class="btn btn--ghost btn--sm"
+                      [href]="link.url"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <svg
+                        class="project-card__link-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                        />
+                      </svg>
+                      {{ tr()(link.label) }}
+                    </a>
+                  }
+                </footer>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <button
+        class="carousel__arrow carousel__arrow--prev"
+        type="button"
+        (click)="prev()"
+        [style.top.px]="(stageHeight() || 520) / 2"
+        [attr.aria-label]="t()('projects.prev')"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+
+      <button
+        class="carousel__arrow carousel__arrow--next"
+        type="button"
+        (click)="next()"
+        [style.top.px]="(stageHeight() || 520) / 2"
+        [attr.aria-label]="t()('projects.next')"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+
+      <div class="carousel__controls">
+        <span class="carousel__counter">
+          {{ (carousel.activeIndex() + 1).toString().padStart(2, '0') }}
+          /
+          {{ featured.length.toString().padStart(2, '0') }}
+        </span>
+
+        <div class="carousel__dots" role="tablist" [attr.aria-label]="t()('nav.projects')">
+          @for (project of featured; track project.id; let i = $index) {
+            <button
+              class="carousel__dot"
+              type="button"
+              [class.is-active]="position(i) === 0"
+              [style.--dot-accent]="project.accent"
+              (click)="goTo(i)"
+              [attr.aria-label]="(i + 1) + ' / ' + featured.length"
+              [attr.aria-current]="position(i) === 0 ? 'true' : null"
+            ></button>
+          }
+        </div>
+
+        <span class="carousel__hint">{{ t()('projects.hint') }}</span>
+      </div>
+    </div>
   </div>
 </section>

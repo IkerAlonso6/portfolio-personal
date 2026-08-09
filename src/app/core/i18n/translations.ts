@@ -35,6 +35,9 @@ export const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'projects.featured': 'Destacados',
     'projects.view': 'Ver',
     'projects.repo': 'Repositorio',
+    'projects.prev': 'Anterior',
+    'projects.next': 'Siguiente',
+    'projects.hint': 'Arrastrá las tarjetas, usá las flechas o ← →',
 
     'education.title': 'Educación',
     'education.subtitle': 'Formación y cursos',
@@ -81,6 +84,9 @@ export const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'projects.featured': 'Featured',
     'projects.view': 'View',
     'projects.repo': 'Repository',
+    'projects.prev': 'Previous',
+    'projects.next': 'Next',
+    'projects.hint': 'Drag the cards, use the arrows or ← →',
 
     'education.title': 'Education',
     'education.subtitle': 'Studies and courses',
