@@ -4,21 +4,24 @@
   position: relative;
 }
 
-.cursor-dog {
+.cursor-text {
   position: fixed;
   top: var(--my, -100px);
   left: var(--mx, -100px);
   pointer-events: none;
   z-index: 9999;
-  font-size: 2rem;
-  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--petrol-bright);
+  white-space: nowrap;
+  transform: translate(15px, 15px);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-/* Efecto al moverse: mostrar el perrito */
-:host:active .cursor-dog,
-:host:hover .cursor-dog {
+/* Efecto al moverse: mostrar el texto */
+:host:active .cursor-text,
+:host:hover .cursor-text {
   opacity: 1;
 }
 
