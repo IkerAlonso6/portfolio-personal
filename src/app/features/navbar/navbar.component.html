@@ -1,0 +1,42 @@
+<header class="navbar" [class.navbar--scrolled]="scrolled()">
+  <a class="navbar__brand" (click)="scrollTo('home')">
+    <span class="navbar__logo">{{ initials }}</span>
+    <span class="navbar__name">Iker<span class="gradient">Alonso</span></span>
+  </a>
+
+  <nav class="navbar__links" aria-label="Main navigation">
+    @for (link of links; track link.key) {
+      <a class="navbar__link" (click)="scrollTo(link.href)">{{ t()(link.key) }}</a>
+    }
+  </nav>
+
+  <div class="navbar__actions">
+    <button
+      class="lang-toggle"
+      (click)="toggleLang()"
+      [attr.aria-label]="lang() === 'es' ? 'Switch to English' : 'Cambiar a español'"
+    >
+      <span [class.lang-toggle__active]="lang() === 'es'">ES</span>
+      <span class="lang-toggle__divider"></span>
+      <span [class.lang-toggle__active]="lang() === 'en'">EN</span>
+    </button>
+
+    <button
+      class="hamburger"
+      [class.hamburger--open]="open()"
+      (click)="open.set(!open())"
+      [attr.aria-label]="open() ? 'Close menu' : 'Open menu'"
+      aria-expanded="open()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" [class.mobile-menu--open]="open()">
+  @for (link of links; track link.key) {
+    <a class="mobile-menu__link" (click)="scrollTo(link.href)">{{ t()(link.key) }}</a>
+  }
+</div>

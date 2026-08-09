@@ -1,0 +1,154 @@
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.edu-card {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.2rem;
+  padding: 1.8rem 1.6rem;
+  border-radius: 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--petrol) 45%, var(--border));
+  }
+
+  &__rail {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      bottom: -2.6rem;
+      width: 2px;
+      background: linear-gradient(var(--petrol), var(--petrol-bright));
+    }
+  }
+
+  &__dot {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--gradient);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--petrol-bright) 70%, transparent);
+    z-index: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  &__degree {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  &__period {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--petrol);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  &__institution {
+    margin: 0;
+    color: var(--petrol-bright);
+    font-size: 0.95rem;
+  }
+
+  &__list {
+    margin: 0.3rem 0 0;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+
+    li::marker {
+      color: var(--petrol);
+    }
+  }
+}
+
+.education__kicker {
+  margin: 3rem 0 1.4rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+}
+
+.education__courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.course-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.4rem;
+  border-radius: 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--petrol-bright) 50%, var(--border));
+  }
+
+  &__icon {
+    color: var(--petrol-bright);
+    font-size: 1.3rem;
+    line-height: 1;
+    text-shadow: 0 0 14px color-mix(in srgb, var(--petrol-bright) 80%, transparent);
+  }
+
+  &__name {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+}

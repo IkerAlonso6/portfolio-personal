@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  position: relative;
+}
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      480px circle at var(--mx, 50vw) var(--my, 20vh),
+      rgba(62, 207, 142, 0.14),
+      transparent 65%
+    ),
+    radial-gradient(
+      260px circle at var(--mx, 50vw) var(--my, 20vh),
+      rgba(113, 239, 179, 0.12),
+      transparent 70%
+    );
+  mix-blend-mode: screen;
+}
+
+.code-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.code-symbol {
+  position: absolute;
+  left: var(--left);
+  top: 105%;
+  font-family: var(--font-mono);
+  font-size: var(--size);
+  line-height: 1;
+  color: rgba(62, 207, 142, 0.14);
+  animation: rise var(--d) linear infinite;
+  animation-delay: var(--delay);
+  will-change: transform, opacity;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(-4deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130vh) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+router-outlet + * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-symbol {
+    animation: none;
+    display: none;
+  }
+}

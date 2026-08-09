@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">{{ initials }}</span>
+      <span>© {{ year }} Iker Guillermo Alonso · {{ t()('footer.rights') }}</span>
+    </div>
+    <button class="footer__top" (click)="scrollToTop()">
+      {{ t()('footer.backToTop') }}
+      <span aria-hidden="true">↑</span>
+    </button>
+  </div>
+</footer>

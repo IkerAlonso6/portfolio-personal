@@ -1,0 +1,24 @@
+<section id="about" class="section">
+  <header class="section-heading reveal" appReveal>
+    <span class="section-heading__label">01 · {{ t()('nav.about') }}</span>
+    <h2 class="section-heading__title">{{ t()('about.title') }}</h2>
+    <p class="section-heading__subtitle">{{ t()('about.subtitle') }}</p>
+  </header>
+
+  <div class="about">
+    <div class="about__copy reveal" appReveal>
+      @for (paragraph of paragraphs; track paragraph) {
+        <p class="about__paragraph">{{ t()(paragraph) }}</p>
+      }
+    </div>
+
+    <div class="about__facts reveal" appReveal>
+      @for (fact of facts; track fact.label) {
+        <div class="fact-card">
+          <span class="fact-card__label">{{ tr()(fact.label) }}</span>
+          <span class="fact-card__value gradient">{{ tr()(fact.value) }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

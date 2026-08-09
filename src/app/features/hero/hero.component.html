@@ -1,0 +1,32 @@
+<section id="home" class="hero">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--petrol" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <div class="hero__text reveal" appReveal>
+      <span class="badge">
+        <span class="badge__dot"></span>
+        {{ t()('hero.badge') }}
+      </span>
+
+      <h1 class="hero__name">
+        {{ profile.firstName }} <span class="gradient">{{ profile.lastName }}</span>
+      </h1>
+      <p class="hero__role gradient">{{ t()(profile.roles[roleIndex()]) }}</p>
+      <p class="hero__tagline">{{ t()('hero.tagline') }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" (click)="scrollTo('projects')">
+          {{ t()('hero.ctaProjects') }}
+        </a>
+        <a class="btn btn--ghost" (click)="scrollTo('contact')">
+          {{ t()('hero.ctaContact') }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero__scroll" (click)="scrollTo('about')" aria-label="Scroll down">
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+  </button>
+</section>

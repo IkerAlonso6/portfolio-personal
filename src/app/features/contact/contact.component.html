@@ -1,0 +1,41 @@
+<section id="contact" class="section">
+  <header class="section-heading reveal" appReveal>
+    <span class="section-heading__label">05 · {{ t()('nav.contact') }}</span>
+    <h2 class="section-heading__title">{{ t()('contact.title') }}</h2>
+  </header>
+
+  <div class="contact">
+    <div class="contact__icons reveal" appReveal>
+      @for (item of items; track item.id) {
+        <a
+          class="contact-icon"
+          [href]="item.href"
+          target="_blank"
+          rel="noopener"
+          [attr.aria-label]="item.label"
+        >
+          <svg
+            class="contact-icon__svg"
+            viewBox="0 0 24 24"
+            [attr.fill]="icons[item.id].filled ? 'currentColor' : 'none'"
+            [attr.stroke]="icons[item.id].filled ? 'none' : 'currentColor'"
+            [attr.stroke-width]="icons[item.id].filled ? '0' : '1.8'"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path [attr.d]="icons[item.id].d" />
+          </svg>
+          <span class="contact-icon__label">{{ tr()(item.label) }}</span>
+        </a>
+      }
+    </div>
+
+    <div class="contact__cta reveal" appReveal>
+      <p class="contact__cta-title">{{ t()('contact.subtitle') }}</p>
+      <a class="btn btn--primary" [href]="'mailto:' + email">
+        {{ t()('contact.send') }}
+      </a>
+    </div>
+  </div>
+</section>

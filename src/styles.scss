@@ -1,1 +1,194 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #04100c;
+  --bg-2: #071a14;
+  --surface: rgba(148, 210, 189, 0.04);
+  --surface-2: rgba(148, 210, 189, 0.08);
+  --border: rgba(148, 210, 189, 0.12);
+  --text: #e6f4ee;
+  --muted: #8fb3a6;
+  --petrol: #3ecf8e;
+  --petrol-bright: #71efb3;
+  --petrol-deep: #123f33;
+  --gradient: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
+  --font-heading: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --container: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(62, 207, 142, 0.08), transparent 45%),
+    radial-gradient(ellipse at 85% 20%, rgba(113, 239, 179, 0.06), transparent 45%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--petrol) 40%, transparent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--petrol-bright), var(--petrol));
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+.section-heading {
+  margin-bottom: 3rem;
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--petrol-bright);
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  &__subtitle {
+    margin: 0.7rem 0 0;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &--primary {
+    color: var(--bg);
+    background: var(--gradient);
+    box-shadow: 0 0 26px color-mix(in srgb, var(--petrol) 45%, transparent);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px color-mix(in srgb, var(--petrol-bright) 60%, transparent);
+    }
+  }
+
+  &--ghost {
+    color: var(--text);
+    background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+    border-color: var(--border);
+
+    &:hover {
+      color: var(--petrol-bright);
+      border-color: color-mix(in srgb, var(--petrol) 55%, var(--border));
+      transform: translateY(-2px);
+    }
+  }
+
+  &--sm {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+  }
+}
+
+.pill {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
