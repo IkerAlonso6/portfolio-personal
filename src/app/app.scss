@@ -6,21 +6,17 @@
 
 .cursor-glow {
   position: fixed;
-  inset: 0;
-  z-index: 0;
+  top: var(--my, 20vh);
+  left: var(--mx, 50vw);
+  width: 120px;
+  height: 2px;
+  background: var(--gradient);
   pointer-events: none;
-  background:
-    radial-gradient(
-      480px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(62, 207, 142, 0.14),
-      transparent 65%
-    ),
-    radial-gradient(
-      260px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(113, 239, 179, 0.12),
-      transparent 70%
-    );
-  mix-blend-mode: screen;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  box-shadow: 0 0 8px var(--petrol);
+  border-radius: 999px;
+  opacity: 0.8;
 }
 
 .code-field {
