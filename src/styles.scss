@@ -1,14 +1,14 @@
 :root {
-  --bg: #1e1e1e;
-  --bg-2: #252526;
+  --bg: #282a36;
+  --bg-2: #44475a;
   --surface: rgba(255, 255, 255, 0.05);
   --surface-2: rgba(255, 255, 255, 0.1);
-  --border: #333333;
-  --text: #cccccc;
-  --muted: #858585;
-  --petrol: #007acc;
-  --petrol-bright: #4fc1ff;
-  --petrol-deep: #004a7a;
+  --border: #44475a;
+  --text: #f8f8f2;
+  --muted: #6272a4;
+  --petrol: #bd93f9;
+  --petrol-bright: #ff79c6;
+  --petrol-deep: #6272a4;
   --gradient: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
   --font-heading: 'Cascadia Code', 'Segoe UI', sans-serif;
   --font-body: 'Cascadia Code', 'Segoe UI', sans-serif;
