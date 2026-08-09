@@ -1,17 +1,17 @@
 :root {
-  --bg: #000000;
-  --bg-2: #121212;
-  --surface: rgba(255, 255, 255, 0.03);
-  --surface-2: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.1);
-  --text: #d1d1d1;
-  --muted: #808080;
-  --petrol: #707070;
-  --petrol-bright: #a0a0a0;
-  --petrol-deep: #202020;
+  --bg: #1e1e1e;
+  --bg-2: #252526;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-2: rgba(255, 255, 255, 0.1);
+  --border: #333333;
+  --text: #cccccc;
+  --muted: #858585;
+  --petrol: #007acc;
+  --petrol-bright: #4fc1ff;
+  --petrol-deep: #004a7a;
   --gradient: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
-  --font-heading: 'Nimbus Sans', 'Shabby Chic', sans-serif;
-  --font-body: 'Nimbus Sans', 'Shabby Chic', sans-serif;
+  --font-heading: 'Cascadia Code', 'Segoe UI', sans-serif;
+  --font-body: 'Cascadia Code', 'Segoe UI', sans-serif;
   --font-mono: 'Cascadia Code', ui-monospace, 'SF Mono', Consolas, monospace;
   --container: 1100px;
 }
