@@ -52,8 +52,8 @@
   border-radius: 1.4rem;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--petrol) 10%, var(--bg-2)),
-    color-mix(in srgb, var(--petrol) 4%, var(--bg-2)) 60%
+    color-mix(in srgb, var(--accent) 12%, var(--bg-2)),
+    color-mix(in srgb, var(--accent) 5%, var(--bg-2)) 60%
   );
   border: var(--line) solid var(--border);
   overflow: hidden;
@@ -192,15 +192,24 @@
   &:hover {
     color: var(--petrol);
     border-color: color-mix(in srgb, var(--petrol) 70%, var(--border));
-    transform: translateY(-50%) scale(1.08);
   }
 
   &--prev {
-    left: -1.2rem;
+    left: calc(50% - var(--slide-w) / 2);
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
   }
 
   &--next {
-    right: -1.2rem;
+    right: calc(50% - var(--slide-w) / 2);
+    transform: translate(50%, -50%);
+
+    &:hover {
+      transform: translate(50%, -50%) scale(1.08);
+    }
   }
 
   svg {

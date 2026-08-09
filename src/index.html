@@ -16,7 +16,35 @@
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   >
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="icons8-desarrollador-16.png">
+  <script>
+    (function () {
+      var colored = 'icons8-desarrollador-16.png';
+      var white = 'icons8-desarrollador-16-white.png';
+      var links = document.querySelectorAll('link[rel="icon"]');
+      var cache = {};
+      function preload(src) {
+        if (!cache[src]) {
+          var img = new Image();
+          img.src = src;
+          cache[src] = img;
+        }
+      }
+      preload(colored);
+      preload(white);
+      function swap(icon) {
+        links.forEach(function (link) {
+          link.href = icon;
+        });
+      }
+      function update() {
+        swap(document.visibilityState === 'visible' ? white : colored);
+      }
+      document.addEventListener('visibilitychange', update);
+      update();
+    })();
+  </script>
+
 </head>
 <body>
   <app-root></app-root>

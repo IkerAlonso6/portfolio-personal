@@ -32,6 +32,7 @@
             <article
               class="project-card"
               [class.is-active]="position(i) === 0"
+              [style.--accent]="project.accent"
               [style]="cardStyle(i)"
               role="group"
               aria-roledescription="slide"
