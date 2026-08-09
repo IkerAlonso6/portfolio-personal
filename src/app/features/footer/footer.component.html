@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <span class="footer__logo">{{ initials }}</span>
+      <span class="footer__logo float" [style.--float-y]="'-4px'" [style.--float-d]="'7s'">{{ initials }}</span>
       <span>© {{ year }} Iker Guillermo Alonso · {{ t()('footer.rights') }}</span>
     </div>
     <button class="footer__top" (click)="scrollToTop()">

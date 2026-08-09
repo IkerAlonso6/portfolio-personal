@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 import { CONTACT_ITEMS } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { ParallaxDirective } from '../../core/directives/parallax.directive';
 
 const ICONS: Record<string, { d: string; filled: boolean }> = {
   email: {
@@ -29,7 +30,7 @@ const ICONS: Record<string, { d: string; filled: boolean }> = {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [RevealDirective],
+  imports: [RevealDirective, ParallaxDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })

@@ -4,6 +4,24 @@
   position: relative;
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  pointer-events: none;
+
+  &__bar {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
+    box-shadow: 0 0 12px rgba(62, 207, 142, 0.6);
+  }
+}
+
 .cursor-glow {
   position: fixed;
   inset: 0;
@@ -23,52 +41,7 @@
   mix-blend-mode: screen;
 }
 
-.code-field {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.code-symbol {
-  position: absolute;
-  left: var(--left);
-  top: 105%;
-  font-family: var(--font-mono);
-  font-size: var(--size);
-  line-height: 1;
-  color: rgba(62, 207, 142, 0.14);
-  animation: rise var(--d) linear infinite;
-  animation-delay: var(--delay);
-  will-change: transform, opacity;
-}
-
-@keyframes rise {
-  0% {
-    transform: translateY(0) rotate(-4deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 1;
-  }
-  88% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-130vh) rotate(5deg);
-    opacity: 0;
-  }
-}
-
 router-outlet + * {
   position: relative;
   z-index: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .code-symbol {
-    animation: none;
-    display: none;
-  }
 }

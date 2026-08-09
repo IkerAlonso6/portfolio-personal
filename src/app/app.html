@@ -1,17 +1,8 @@
-<div class="code-field" aria-hidden="true">
-  <span class="code-symbol" style="--left: 4%; --d: 30s; --delay: 0s; --size: 1.3rem">{{ '{ }' }}</span>
-  <span class="code-symbol" style="--left: 12%; --d: 38s; --delay: 4s; --size: 1.1rem">&lt;/&gt;</span>
-  <span class="code-symbol" style="--left: 22%; --d: 26s; --delay: 9s; --size: 1.5rem">=&gt;</span>
-  <span class="code-symbol" style="--left: 31%; --d: 42s; --delay: 2s; --size: 1rem">[ ]</span>
-  <span class="code-symbol" style="--left: 41%; --d: 34s; --delay: 14s; --size: 1.4rem">&amp;&amp;</span>
-  <span class="code-symbol" style="--left: 50%; --d: 28s; --delay: 6s; --size: 1.1rem">const</span>
-  <span class="code-symbol" style="--left: 58%; --d: 40s; --delay: 12s; --size: 1.6rem">() =&gt;</span>
-  <span class="code-symbol" style="--left: 66%; --d: 32s; --delay: 1s; --size: 1rem">#</span>
-  <span class="code-symbol" style="--left: 74%; --d: 44s; --delay: 18s; --size: 1.2rem">if ( )</span>
-  <span class="code-symbol" style="--left: 82%; --d: 36s; --delay: 7s; --size: 1.3rem">&lt;App/&gt;</span>
-  <span class="code-symbol" style="--left: 90%; --d: 30s; --delay: 11s; --size: 1.1rem">;</span>
-  <span class="code-symbol" style="--left: 96%; --d: 40s; --delay: 21s; --size: 1.5rem">*</span>
+<div class="scroll-progress" aria-hidden="true">
+  <span class="scroll-progress__bar" [style.width.%]="progress()"></span>
 </div>
+
+<app-neural-bg />
 
 <div class="cursor-glow" appMouseGlow aria-hidden="true"></div>
 <router-outlet />

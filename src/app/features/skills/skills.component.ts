@@ -2,11 +2,13 @@ import { Component, inject, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 import { SKILL_GROUPS } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { ParallaxDirective } from '../../core/directives/parallax.directive';
+import { TiltDirective } from '../../core/directives/tilt.directive';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [RevealDirective],
+  imports: [RevealDirective, ParallaxDirective, TiltDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })

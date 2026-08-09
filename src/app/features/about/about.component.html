@@ -1,20 +1,22 @@
-<section id="about" class="section">
-  <header class="section-heading reveal" appReveal>
-    <span class="section-heading__label">01 · {{ t()('nav.about') }}</span>
-    <h2 class="section-heading__title">{{ t()('about.title') }}</h2>
-    <p class="section-heading__subtitle">{{ t()('about.subtitle') }}</p>
-  </header>
+<section id="about" class="section reveal" appReveal [appRevealThreshold]="0.01">
+  <div [appParallax]="0.05">
+    <header class="section-heading">
+      <span class="section-heading__label">01 · {{ t()('nav.about') }}</span>
+      <h2 class="section-heading__title">{{ t()('about.title') }}</h2>
+      <p class="section-heading__subtitle">{{ t()('about.subtitle') }}</p>
+    </header>
+  </div>
 
-  <div class="about">
-    <div class="about__copy reveal" appReveal>
+  <div class="about" [appParallax]="0.04">
+    <div class="about__copy reveal" appReveal [appRevealDelay]="60">
       @for (paragraph of paragraphs; track paragraph) {
         <p class="about__paragraph">{{ t()(paragraph) }}</p>
       }
     </div>
 
-    <div class="about__facts reveal" appReveal>
+    <div class="about__facts reveal" appReveal [appRevealDelay]="160">
       @for (fact of facts; track fact.label) {
-        <div class="fact-card">
+        <div class="fact-card" appTilt>
           <span class="fact-card__label">{{ tr()(fact.label) }}</span>
           <span class="fact-card__value gradient">{{ tr()(fact.value) }}</span>
         </div>

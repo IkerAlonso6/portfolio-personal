@@ -1,13 +1,15 @@
-<section id="education" class="section">
-  <header class="section-heading reveal" appReveal>
-    <span class="section-heading__label">04 · {{ t()('nav.education') }}</span>
-    <h2 class="section-heading__title">{{ t()('education.title') }}</h2>
-    <p class="section-heading__subtitle">{{ t()('education.subtitle') }}</p>
-  </header>
+<section id="education" class="section reveal" appReveal [appRevealThreshold]="0.01">
+  <div [appParallax]="0.05">
+    <header class="section-heading">
+      <span class="section-heading__label">04 · {{ t()('nav.education') }}</span>
+      <h2 class="section-heading__title">{{ t()('education.title') }}</h2>
+      <p class="section-heading__subtitle">{{ t()('education.subtitle') }}</p>
+    </header>
+  </div>
 
-  <div class="education">
-    @for (item of education; track item.degree) {
-      <article class="edu-card reveal" appReveal>
+  <div class="education" [appParallax]="0.03">
+    @for (item of education; track item.degree; let i = $index) {
+      <article class="edu-card reveal" appTilt appReveal [appRevealDelay]="i * 80">
         <div class="edu-card__rail" aria-hidden="true">
           <span class="edu-card__dot"></span>
         </div>
@@ -27,11 +29,13 @@
     }
   </div>
 
-  <p class="education__kicker reveal" appReveal>{{ t()('education.courses') }}</p>
+  <div [appParallax]="0.04">
+    <p class="education__kicker reveal" appReveal>{{ t()('education.courses') }}</p>
+  </div>
 
-  <div class="education__courses">
-    @for (course of courses; track course.name) {
-      <article class="course-card reveal" appReveal>
+  <div class="education__courses" [appParallax]="0.03">
+    @for (course of courses; track course.name; let i = $index) {
+      <article class="course-card reveal" appTilt appReveal [appRevealDelay]="i * 70">
         <span class="course-card__icon" aria-hidden="true">✦</span>
         <div>
           <h4 class="course-card__name">{{ tr()(course.name) }}</h4>

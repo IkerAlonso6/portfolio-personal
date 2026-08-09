@@ -1,6 +1,7 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 import { PROFILE } from '../../core/data/profile.data';
+import { ScrollService } from '../../core/services/scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { PROFILE } from '../../core/data/profile.data';
 })
 export class NavbarComponent {
   private readonly i18n = inject(I18nService);
+  private readonly scroll = inject(ScrollService);
   readonly t = this.i18n.t;
   readonly lang = this.i18n.lang;
   readonly initials = PROFILE.initials;
@@ -25,9 +27,10 @@ export class NavbarComponent {
     { href: 'contact', key: 'nav.contact' }
   ];
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    this.scrolled.set(window.scrollY > 24);
+  constructor() {
+    effect(() => {
+      this.scrolled.set(this.scroll.scrollY() > 24);
+    });
   }
 
   toggleLang(): void {

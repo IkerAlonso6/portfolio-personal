@@ -2,11 +2,12 @@ import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 import { PROFILE } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { ParallaxDirective } from '../../core/directives/parallax.directive';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [RevealDirective],
+  imports: [RevealDirective, ParallaxDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })

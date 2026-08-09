@@ -1,14 +1,14 @@
-<section id="home" class="hero">
-  <div class="hero__grid" aria-hidden="true"></div>
+<section id="home" class="hero reveal" appReveal [appRevealThreshold]="0.01">
+  <div class="hero__grid" [appParallax]="0.18" aria-hidden="true"></div>
 
-  <div class="hero__content">
+  <div class="hero__content" [appParallax]="0.07">
     <div class="hero__text reveal" appReveal>
       <span class="badge">
         <span class="badge__dot"></span>
         {{ t()('hero.badge') }}
       </span>
 
-      <h1 class="hero__name">
+      <h1 class="hero__name float">
         {{ profile.firstName }} <span class="gradient">{{ profile.lastName }}</span>
       </h1>
       <p class="hero__role gradient">{{ t()(profile.roles[roleIndex()]) }}</p>

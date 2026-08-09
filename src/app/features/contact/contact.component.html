@@ -1,41 +1,50 @@
-<section id="contact" class="section">
-  <header class="section-heading reveal" appReveal>
-    <span class="section-heading__label">05 · {{ t()('nav.contact') }}</span>
-    <h2 class="section-heading__title">{{ t()('contact.title') }}</h2>
-  </header>
+<section id="contact" class="section reveal" appReveal [appRevealThreshold]="0.01">
+  <div [appParallax]="0.05">
+    <header class="section-heading">
+      <span class="section-heading__label">05 · {{ t()('nav.contact') }}</span>
+      <h2 class="section-heading__title">{{ t()('contact.title') }}</h2>
+    </header>
+  </div>
 
   <div class="contact">
-    <div class="contact__icons reveal" appReveal>
-      @for (item of items; track item.id) {
-        <a
-          class="contact-icon"
-          [href]="item.href"
-          target="_blank"
-          rel="noopener"
-          [attr.aria-label]="item.label"
-        >
-          <svg
-            class="contact-icon__svg"
-            viewBox="0 0 24 24"
-            [attr.fill]="icons[item.id].filled ? 'currentColor' : 'none'"
-            [attr.stroke]="icons[item.id].filled ? 'none' : 'currentColor'"
-            [attr.stroke-width]="icons[item.id].filled ? '0' : '1.8'"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+    <div [appParallax]="0.05">
+      <div class="contact__icons reveal" appReveal [appRevealDelay]="80">
+        @for (item of items; track item.id; let i = $index) {
+          <a
+            class="contact-icon float"
+            [style.--float-d]="(5 + (i % 3)) + 's'"
+            [style.--float-delay]="(i * 0.7) + 's'"
+            [style.--float-y]="'-5px'"
+            [href]="item.href"
+            target="_blank"
+            rel="noopener"
+            [attr.aria-label]="item.label"
           >
-            <path [attr.d]="icons[item.id].d" />
-          </svg>
-          <span class="contact-icon__label">{{ tr()(item.label) }}</span>
-        </a>
-      }
+            <svg
+              class="contact-icon__svg"
+              viewBox="0 0 24 24"
+              [attr.fill]="icons[item.id].filled ? 'currentColor' : 'none'"
+              [attr.stroke]="icons[item.id].filled ? 'none' : 'currentColor'"
+              [attr.stroke-width]="icons[item.id].filled ? '0' : '1.8'"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path [attr.d]="icons[item.id].d" />
+            </svg>
+            <span class="contact-icon__label">{{ tr()(item.label) }}</span>
+          </a>
+        }
+      </div>
     </div>
 
-    <div class="contact__cta reveal" appReveal>
-      <p class="contact__cta-title">{{ t()('contact.subtitle') }}</p>
-      <a class="btn btn--primary" [href]="'mailto:' + email">
-        {{ t()('contact.send') }}
-      </a>
+    <div [appParallax]="0.04">
+      <div class="contact__cta reveal" appReveal [appRevealDelay]="140">
+        <p class="contact__cta-title">{{ t()('contact.subtitle') }}</p>
+        <a class="btn btn--primary" [href]="'mailto:' + email">
+          {{ t()('contact.send') }}
+        </a>
+      </div>
     </div>
   </div>
 </section>
