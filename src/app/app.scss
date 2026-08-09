@@ -13,20 +13,27 @@
 
 .cursor-trail {
   position: absolute;
-  top: var(--my, 20vh);
-  left: var(--mx, 50vw);
+  top: var(--my, -100px); /* Inicialmente fuera de pantalla */
+  left: var(--mx, -100px);
   width: 120px;
   height: 2px;
   background: var(--gradient);
   transform: translate(-50%, -50%) rotate(-45deg);
   box-shadow: 0 0 8px var(--petrol);
   border-radius: 999px;
+  opacity: 0; /* Oculto por defecto */
+  transition: top 0.1s linear, left 0.1s linear, opacity 0.2s ease;
+}
+
+/* Efecto al moverse: mostrar estela */
+:host:active .cursor-trail,
+:host:hover .cursor-trail {
   opacity: 0.8;
-  transition: top 0.1s linear, left 0.1s linear;
 }
 
 .cursor-trail:nth-child(2) { transition-delay: 0.05s; opacity: 0.5; }
 .cursor-trail:nth-child(3) { transition-delay: 0.1s; opacity: 0.2; }
+
 
 .code-field {
   position: fixed;
