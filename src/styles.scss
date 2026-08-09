@@ -1,18 +1,18 @@
 :root {
-  --bg: #04100c;
-  --bg-2: #071a14;
-  --surface: rgba(148, 210, 189, 0.04);
-  --surface-2: rgba(148, 210, 189, 0.08);
-  --border: rgba(148, 210, 189, 0.12);
-  --text: #e6f4ee;
-  --muted: #8fb3a6;
+  --bg: #000000;
+  --bg-2: #0f0f0f;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #e0e0e0;
+  --muted: #a0a0a0;
   --petrol: #3ecf8e;
   --petrol-bright: #71efb3;
   --petrol-deep: #123f33;
   --gradient: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
-  --font-heading: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
-  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-heading: 'Cascadia Code', system-ui, sans-serif;
+  --font-body: 'Cascadia Code', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Cascadia Code', ui-monospace, 'SF Mono', Consolas, monospace;
   --container: 1100px;
 }
 
