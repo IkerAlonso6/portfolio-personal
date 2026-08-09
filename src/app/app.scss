@@ -4,6 +4,91 @@
   position: relative;
 }
 
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(155, 255, 0, 0.08), transparent 50%),
+    radial-gradient(ellipse at 12% 110%, rgba(62, 120, 0, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--bg-2), var(--bg));
+}
+
+.bg-field__symbol {
+  position: absolute;
+  left: var(--left);
+  top: 105%;
+  font-family: var(--font-mono);
+  font-size: var(--size);
+  line-height: 1;
+  color: rgba(155, 255, 0, 0.1);
+  animation: fieldRise var(--d) linear infinite;
+  animation-delay: var(--delay);
+  will-change: transform, opacity;
+}
+
+@keyframes fieldRise {
+  0% {
+    transform: translateY(0) rotate(-6deg);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130vh) rotate(7deg);
+    opacity: 0;
+  }
+}
+
+.hud-corners {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+
+  span {
+    position: absolute;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-color: rgba(155, 255, 0, 0.35);
+    filter: drop-shadow(0 0 8px rgba(155, 255, 0, 0.35));
+  }
+
+  &__tl {
+    top: 0.9rem;
+    left: 0.9rem;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+
+  &__tr {
+    top: 0.9rem;
+    right: 0.9rem;
+    border-top: 2px solid;
+    border-right: 2px solid;
+  }
+
+  &__bl {
+    bottom: 0.9rem;
+    left: 0.9rem;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+  }
+
+  &__br {
+    bottom: 0.9rem;
+    right: 0.9rem;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+}
+
 .cursor-glow {
   position: fixed;
   inset: 0;
@@ -12,52 +97,69 @@
   background:
     radial-gradient(
       480px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(62, 207, 142, 0.14),
+      rgba(155, 255, 0, 0.12),
       transparent 65%
-    ),
-    radial-gradient(
-      260px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(113, 239, 179, 0.12),
-      transparent 70%
     );
   mix-blend-mode: screen;
 }
 
-.code-field {
+.vignette {
   position: fixed;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
   pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.75) 100%);
 }
 
-.code-symbol {
-  position: absolute;
-  left: var(--left);
-  top: 105%;
-  font-family: var(--font-mono);
-  font-size: var(--size);
-  line-height: 1;
-  color: rgba(62, 207, 142, 0.14);
-  animation: rise var(--d) linear infinite;
-  animation-delay: var(--delay);
-  will-change: transform, opacity;
+.crt {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.28) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  animation: crtFlicker 8s steps(60) infinite;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 45%,
+      rgba(155, 255, 0, 0.02) 49%,
+      transparent 52%,
+      transparent 100%
+    );
+    animation: crtSweep 7s linear infinite;
+  }
 }
 
-@keyframes rise {
+@keyframes crtFlicker {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.94;
+  }
+}
+
+@keyframes crtSweep {
   0% {
-    transform: translateY(0) rotate(-4deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 1;
-  }
-  88% {
-    opacity: 1;
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateY(-130vh) rotate(5deg);
-    opacity: 0;
+    transform: translateY(100%);
   }
 }
 
@@ -67,8 +169,13 @@ router-outlet + * {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .code-symbol {
+  .bg-field__symbol {
     animation: none;
     display: none;
+  }
+
+  .crt,
+  .crt::after {
+    animation: none;
   }
 }

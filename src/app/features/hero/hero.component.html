@@ -1,6 +1,9 @@
 <section id="home" class="hero">
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__glow hero__glow--petrol" aria-hidden="true"></div>
+  <div class="hero__hud" aria-hidden="true">
+    <span class="hero__hud-item hero__hud-item--left">IKER ALONSO</span>
+    <span class="hero__hud-item hero__hud-item--mid">FULL STACK · 99 OVR</span>
+    <span class="hero__hud-item hero__hud-item--right">'26</span>
+  </div>
 
   <div class="hero__content">
     <div class="hero__text reveal" appReveal>
@@ -23,6 +26,10 @@
           {{ t()('hero.ctaContact') }}
         </a>
       </div>
+
+      <button class="hero__start" (click)="scrollTo('about')">
+        {{ t()('hero.pressStart') }}
+      </button>
     </div>
   </div>
 

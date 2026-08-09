@@ -9,25 +9,43 @@
     @for (group of groups; track group.id; let i = $index) {
       <article class="skill-card reveal" [class.skill-card--alt]="i % 2 === 1" appReveal>
         <header class="skill-card__header">
-          <span class="skill-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-          <h3 class="skill-card__title">{{ tr()(group.title) }}</h3>
+          <div class="skill-card__meta">
+            <span class="skill-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <h3 class="skill-card__title">{{ tr()(group.title) }}</h3>
+          </div>
+          <span class="skill-card__ovr">
+            <span class="skill-card__ovr-num">{{ ovr(group, i) }}</span>
+            <span class="skill-card__ovr-label">OVR</span>
+          </span>
         </header>
 
         <div class="skill-card__list">
-          @for (skill of group.skills; track skill.name) {
-            <div class="skill-tile">
-              @if (skill.slug && !logoFailed(skill.slug)) {
-                <img
-                  class="skill-tile__logo"
-                  [src]="logoUrl(skill.slug)"
-                  [alt]="skill.name"
-                  loading="lazy"
-                  (error)="onLogoError(skill.slug)"
-                />
-              } @else {
-                <span class="skill-tile__logo skill-tile__logo--mono">{{ skill.initial }}</span>
-              }
-              <span class="skill-tile__name">{{ skill.name }}</span>
+          @for (skill of group.skills; track skill.name; let j = $index) {
+            <div class="skill-bar">
+              <div class="skill-bar__top">
+                <span class="skill-bar__name">
+                  @if (skill.slug && !logoFailed(skill.slug)) {
+                    <img
+                      class="skill-bar__logo"
+                      [src]="logoUrl(skill.slug)"
+                      [alt]="skill.name"
+                      loading="lazy"
+                      (error)="onLogoError(skill.slug)"
+                    />
+                  } @else {
+                    <span class="skill-bar__mono">{{ skill.initial }}</span>
+                  }
+                  <span class="skill-bar__text">{{ skill.name }}</span>
+                </span>
+                <span class="skill-bar__value">{{ rating(group, i, j) }}</span>
+              </div>
+              <div class="skill-bar__track">
+                <span
+                  class="skill-bar__fill"
+                  [style.--w]="rating(group, i, j) + '%'"
+                  [style.transition-delay]="j * 80 + 'ms'"
+                ></span>
+              </div>
             </div>
           }
         </div>

@@ -17,6 +17,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, string>> = {
       'Construyo aplicaciones web modernas y escalables, del back al front, con foco en código limpio y experiencias cuidando cada detalle.',
     'hero.ctaProjects': 'Ver proyectos',
     'hero.ctaContact': 'Contáctame',
+    'hero.pressStart': 'Press Start · continuar',
 
     'about.title': 'Sobre mí',
     'about.subtitle': 'Quién soy y cómo trabajo',
@@ -63,6 +64,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, string>> = {
       'I build modern, scalable web applications, from back to front, focused on clean code and polished experiences.',
     'hero.ctaProjects': 'View projects',
     'hero.ctaContact': 'Contact me',
+    'hero.pressStart': 'Press Start · continue',
 
     'about.title': 'About me',
     'about.subtitle': 'Who I am and how I work',

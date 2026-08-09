@@ -1,7 +1,7 @@
 .education {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.3rem;
 }
 
 .edu-card {
@@ -9,41 +9,39 @@
   grid-template-columns: 3.5rem 1fr;
   gap: 1.2rem;
   padding: 1.8rem 1.6rem;
-  border-radius: 1.4rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #16191d, #0b0d0f);
+  border: 1px solid var(--border-bright);
+  box-shadow:
+    0 6px 0 #000,
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--petrol) 45%, var(--border));
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 50%, var(--border-bright));
   }
 
-  &__rail {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  &__trophy {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 4px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 22%, #14171b), #0c0e10);
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--border));
+    color: var(--accent);
+    box-shadow:
+      0 3px 0 #000,
+      0 0 22px rgba(155, 255, 0, 0.25);
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 1.2rem;
-      bottom: -2.6rem;
-      width: 2px;
-      background: linear-gradient(var(--petrol), var(--petrol-bright));
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      filter: drop-shadow(0 0 8px rgba(155, 255, 0, 0.6));
     }
-  }
-
-  &__dot {
-    width: 1.1rem;
-    height: 1.1rem;
-    border-radius: 50%;
-    background: var(--gradient);
-    box-shadow: 0 0 16px color-mix(in srgb, var(--petrol-bright) 70%, transparent);
-    z-index: 1;
   }
 
   &__content {
@@ -63,23 +61,27 @@
   &__degree {
     margin: 0;
     font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--text);
+    transform: skewX(-4deg);
+    text-shadow: 0 2px 0 #000, 0 4px 0 rgba(0, 0, 0, 0.6);
   }
 
   &__period {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    color: var(--petrol);
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
     white-space: nowrap;
   }
 
   &__institution {
     margin: 0;
-    color: var(--petrol-bright);
-    font-size: 0.95rem;
+    color: var(--accent-bright);
+    font-size: 0.98rem;
+    font-weight: 600;
   }
 
   &__list {
@@ -89,17 +91,19 @@
     flex-direction: column;
     gap: 0.45rem;
     color: var(--muted);
-    font-size: 0.92rem;
+    font-size: 0.94rem;
+    font-weight: 500;
     line-height: 1.55;
 
     li::marker {
-      color: var(--petrol);
+      color: var(--accent);
     }
   }
 }
 
 .education__kicker {
   margin: 3rem 0 1.4rem;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.28em;
@@ -117,37 +121,39 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem 1.4rem;
-  border-radius: 1.2rem;
-  background: var(--surface);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #14171b, #0a0c0e);
   border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 0 #000, inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--petrol-bright) 50%, var(--border));
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent-bright) 50%, var(--border));
   }
 
   &__icon {
-    color: var(--petrol-bright);
-    font-size: 1.3rem;
-    line-height: 1;
-    text-shadow: 0 0 14px color-mix(in srgb, var(--petrol-bright) 80%, transparent);
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.2;
+    text-shadow: 0 0 14px rgba(155, 255, 0, 0.8);
   }
 
   &__name {
     margin: 0 0 0.4rem;
     font-family: var(--font-heading);
-    font-size: 1.02rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--text);
   }
 
   &__description {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
+    font-weight: 500;
     line-height: 1.6;
     color: var(--muted);
   }
