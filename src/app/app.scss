@@ -4,35 +4,23 @@
   position: relative;
 }
 
-.cursor-glow {
+.cursor-dog {
   position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.cursor-trail {
-  position: absolute;
   top: var(--my, -100px);
   left: var(--mx, -100px);
-  width: 8px;
-  height: 8px;
-  background: var(--petrol-bright);
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 2rem;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px var(--petrol-bright);
-  border-radius: 50%;
   opacity: 0;
-  transition: top 0.1s linear, left 0.1s linear, opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-/* Efecto al moverse: mostrar estela */
-:host:active .cursor-trail,
-:host:hover .cursor-trail {
-  opacity: 0.8;
+/* Efecto al moverse: mostrar el perrito */
+:host:active .cursor-dog,
+:host:hover .cursor-dog {
+  opacity: 1;
 }
-
-.cursor-trail:nth-child(2) { transition-delay: 0.05s; opacity: 0.5; }
-.cursor-trail:nth-child(3) { transition-delay: 0.1s; opacity: 0.2; }
 
 
 .code-field {
