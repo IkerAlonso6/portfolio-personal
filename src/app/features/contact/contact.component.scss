@@ -31,12 +31,10 @@
     padding: 0.9rem;
     border-radius: 1rem;
     background: var(--surface);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(8px);
+    border: var(--line) solid var(--border);
     transition:
       color 0.25s ease,
       border-color 0.25s ease,
-      box-shadow 0.25s ease,
       transform 0.25s ease;
   }
 
@@ -56,9 +54,6 @@
     .contact-icon__svg {
       color: var(--petrol-bright);
       border-color: color-mix(in srgb, var(--petrol) 55%, var(--border));
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.35),
-        0 0 26px color-mix(in srgb, var(--petrol) 25%, transparent);
       transform: translateY(-2px);
     }
 
@@ -76,10 +71,8 @@
   text-align: center;
   padding: 3.4rem 2rem;
   border-radius: 1.6rem;
-  background:
-    radial-gradient(ellipse at 50% 120%, rgba(62, 207, 142, 0.14), transparent 70%),
-    var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: var(--line) solid var(--border);
 
   &-title {
     margin: 0;

@@ -9,7 +9,8 @@
   --petrol: #3ecf8e;
   --petrol-bright: #71efb3;
   --petrol-deep: #123f33;
-  --gradient: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
+  --gradient: var(--petrol);
+  --line: 2px;
   --font-heading: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
   --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
@@ -32,10 +33,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: var(--text);
-  background:
-    radial-gradient(ellipse at 15% 0%, rgba(62, 207, 142, 0.08), transparent 45%),
-    radial-gradient(ellipse at 85% 20%, rgba(113, 239, 179, 0.06), transparent 45%),
-    var(--bg);
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,7 +52,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--petrol-bright), var(--petrol));
+  background: var(--petrol);
   border-radius: 999px;
   border: 2px solid var(--bg);
 }
@@ -109,7 +107,7 @@ button {
   gap: 0.5rem;
   padding: 0.8rem 1.7rem;
   border-radius: 999px;
-  border: 1px solid transparent;
+  border: var(--line) solid transparent;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
@@ -117,18 +115,19 @@ button {
   cursor: pointer;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
     border-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    background 0.2s ease;
 
   &--primary {
     color: var(--bg);
     background: var(--gradient);
-    box-shadow: 0 0 26px color-mix(in srgb, var(--petrol) 45%, transparent);
+    border-color: color-mix(in srgb, var(--petrol-bright) 45%, var(--petrol));
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 38px color-mix(in srgb, var(--petrol-bright) 60%, transparent);
+      background: var(--petrol-bright);
+      border-color: var(--petrol-bright);
     }
   }
 
@@ -153,7 +152,7 @@ button {
 .pill {
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
+  border: var(--line) solid var(--border);
   background: color-mix(in srgb, var(--surface-2) 70%, transparent);
   color: var(--text);
   font-family: var(--font-mono);

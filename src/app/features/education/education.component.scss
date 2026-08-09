@@ -11,8 +11,7 @@
   padding: 1.8rem 1.6rem;
   border-radius: 1.4rem;
   background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  border: var(--line) solid var(--border);
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
@@ -32,8 +31,8 @@
       position: absolute;
       top: 1.2rem;
       bottom: -2.6rem;
-      width: 2px;
-      background: linear-gradient(var(--petrol), var(--petrol-bright));
+      width: 3px;
+      background: var(--petrol);
     }
   }
 
@@ -42,7 +41,7 @@
     height: 1.1rem;
     border-radius: 50%;
     background: var(--gradient);
-    box-shadow: 0 0 16px color-mix(in srgb, var(--petrol-bright) 70%, transparent);
+    border: var(--line) solid color-mix(in srgb, var(--petrol-bright) 50%, var(--petrol));
     z-index: 1;
   }
 
@@ -119,8 +118,7 @@
   padding: 1.5rem 1.4rem;
   border-radius: 1.2rem;
   background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  border: var(--line) solid var(--border);
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
@@ -134,7 +132,6 @@
     color: var(--petrol-bright);
     font-size: 1.3rem;
     line-height: 1;
-    text-shadow: 0 0 14px color-mix(in srgb, var(--petrol-bright) 80%, transparent);
   }
 
   &__name {

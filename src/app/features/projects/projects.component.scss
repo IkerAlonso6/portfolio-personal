@@ -19,20 +19,15 @@
   flex-direction: column;
   border-radius: 1.4rem;
   background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  border: var(--line) solid var(--border);
   overflow: hidden;
   transition:
     border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.25s ease;
 
   &:hover {
     transform: translateY(-5px);
     border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
-    box-shadow:
-      0 20px 50px rgba(0, 0, 0, 0.45),
-      0 0 60px color-mix(in srgb, var(--accent) 14%, transparent);
   }
 
   &__header {
@@ -48,11 +43,8 @@
     width: 3.4rem;
     height: 3.4rem;
     border-radius: 1rem;
-    background:
-      linear-gradient(135deg, color-mix(in srgb, var(--accent) 25%, transparent), transparent),
-      var(--surface-2);
-    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
-    box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 25%, transparent);
+    background: var(--surface-2);
+    border: var(--line) solid color-mix(in srgb, var(--accent) 45%, var(--border));
   }
 
   &__initials {

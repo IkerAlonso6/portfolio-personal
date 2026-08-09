@@ -1,7 +1,6 @@
 .footer {
-  border-top: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg-2) 60%, transparent);
-  backdrop-filter: blur(12px);
+  border-top: var(--line) solid var(--border);
+  background: var(--bg-2);
 
   &__inner {
     max-width: var(--container);
@@ -28,6 +27,7 @@
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 0.6rem;
+    border: var(--line) solid color-mix(in srgb, var(--petrol-bright) 45%, var(--petrol));
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.8rem;
@@ -40,7 +40,7 @@
     align-items: center;
     gap: 0.45rem;
     background: none;
-    border: 1px solid var(--border);
+    border: var(--line) solid var(--border);
     border-radius: 999px;
     padding: 0.5rem 1rem;
     color: var(--muted);

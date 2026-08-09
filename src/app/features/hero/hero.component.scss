@@ -15,27 +15,11 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(62, 207, 142, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(62, 207, 142, 0.05) 1px, transparent 1px);
-    background-size: 44px 44px;
-    mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+      linear-gradient(rgba(62, 207, 142, 0.1) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(62, 207, 142, 0.1) 2px, transparent 2px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 80%);
     pointer-events: none;
-  }
-
-  &__glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(110px);
-    opacity: 0.45;
-    pointer-events: none;
-
-    &--petrol {
-      width: 40rem;
-      height: 40rem;
-      top: -10rem;
-      right: -12rem;
-      background: radial-gradient(circle, rgba(62, 207, 142, 0.5), transparent 65%);
-    }
   }
 
   &__content {
@@ -107,9 +91,9 @@
     cursor: pointer;
 
     &-line {
-      width: 1px;
+      width: 3px;
       height: 2.6rem;
-      background: linear-gradient(var(--petrol), transparent);
+      background: var(--petrol);
       animation: scrollPulse 1.8s ease-in-out infinite;
     }
   }
@@ -121,7 +105,7 @@
   gap: 0.5rem;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--petrol) 40%, var(--border));
+  border: var(--line) solid color-mix(in srgb, var(--petrol) 40%, var(--border));
   background: color-mix(in srgb, var(--petrol) 8%, transparent);
   color: var(--petrol-bright);
   font-family: var(--font-mono);
@@ -129,11 +113,10 @@
   letter-spacing: 0.02em;
 
   &__dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--petrol);
-    box-shadow: 0 0 10px var(--petrol);
     animation: blink 2s ease-in-out infinite;
   }
 }
