@@ -97,10 +97,10 @@
   background:
     radial-gradient(
       480px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(155, 255, 0, 0.12),
+      rgba(155, 255, 0, 0.1),
       transparent 65%
     );
-  mix-blend-mode: screen;
+  opacity: 0.85;
 }
 
 .vignette {

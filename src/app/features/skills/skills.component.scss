@@ -191,22 +191,13 @@
     border-radius: 2px;
     background: linear-gradient(90deg, #6fcf00 0%, var(--accent) 55%, var(--accent-bright) 100%);
     box-shadow: 0 0 8px rgba(155, 255, 0, 0.6);
-    transform: scaleX(0);
+    transform: scaleX(1);
     transform-origin: left;
-    transition: transform 1s ease;
   }
-}
-
-.skill-card.revealed .skill-bar__fill {
-  transform: scaleX(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .skill-bar__fill {
     transition: none;
-  }
-
-  .skill-card .skill-bar__fill {
-    transform: scaleX(1);
   }
 }
