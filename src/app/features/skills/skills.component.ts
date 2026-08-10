@@ -2,13 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 import { SKILL_GROUPS } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
-import { ParallaxDirective } from '../../core/directives/parallax.directive';
-import { TiltDirective } from '../../core/directives/tilt.directive';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [RevealDirective, ParallaxDirective, TiltDirective],
+  imports: [RevealDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -21,7 +19,7 @@ export class SkillsComponent {
   private readonly failedLogos = signal(new Set<string>());
 
   logoUrl(slug: string): string {
-    return `https://cdn.simpleicons.org/${slug}/71efb3`;
+    return `https://cdn.simpleicons.org/${slug}/7ff3ff`;
   }
 
   logoFailed(slug: string): boolean {

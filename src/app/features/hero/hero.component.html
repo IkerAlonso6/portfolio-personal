@@ -1,16 +1,18 @@
 <section id="home" class="hero reveal" appReveal [appRevealThreshold]="0.01">
-  <div class="hero__grid" [appParallax]="0.18" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
 
-  <div class="hero__content" [appParallax]="0.07">
+  <div class="hero__content">
     <div class="hero__text reveal" appReveal>
       <span class="badge">
-        <span class="badge__dot"></span>
+        <span class="badge__dot" aria-hidden="true"></span>
         {{ t()('hero.badge') }}
       </span>
 
       <h1 class="hero__name float">
-        {{ profile.firstName }} <span class="gradient">{{ profile.lastName }}</span>
+        {{ profile.firstName }} <span class="gradient">{{ profile.lastName }}</span
+        ><span class="hero__cursor" aria-hidden="true"></span>
       </h1>
+      <p class="hero__prompt" aria-hidden="true">READY.</p>
       <p class="hero__role gradient">{{ t()(profile.roles[roleIndex()]) }}</p>
       <p class="hero__tagline">{{ t()('hero.tagline') }}</p>
 
@@ -26,6 +28,6 @@
   </div>
 
   <button class="hero__scroll" (click)="scrollTo('about')" aria-label="Scroll down">
-    <span class="hero__scroll-line" aria-hidden="true"></span>
+    <span class="hero__scroll-label" aria-hidden="true">▼</span>
   </button>
 </section>

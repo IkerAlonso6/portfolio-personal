@@ -1,5 +1,5 @@
 <section id="projects" class="section reveal" appReveal [appRevealThreshold]="0.01">
-  <div [appParallax]="0.05">
+  <div>
     <header class="section-heading">
       <span class="section-heading__label">03 · {{ t()('nav.projects') }}</span>
       <h2 class="section-heading__title">{{ t()('projects.title') }}</h2>
@@ -10,7 +10,7 @@
   <div class="projects__carousel reveal" appReveal [appRevealThreshold]="0.05">
     <p class="projects__kicker">{{ t()('projects.featured') }}</p>
 
-    <div class="projects__carousel-inner" [appParallax]="0.03">
+    <div class="projects__carousel-inner">
       <div
         #carousel="appCarousel"
         class="carousel"
@@ -39,7 +39,7 @@
               [attr.aria-label]="(i + 1) + ' / ' + featured.length"
               [attr.aria-hidden]="position(i) !== 0"
             >
-              <div class="project-card__inner" appTilt>
+              <div class="project-card__inner">
                 <header class="project-card__header">
                   <div class="project-card__badge">
                     <span class="project-card__initials">{{ project.initials }}</span>

@@ -1,11 +1,11 @@
 .footer {
-  border-top: var(--line) solid var(--border);
+  border-top: var(--line) solid var(--border-strong);
   background: var(--bg-2);
 
   &__inner {
     max-width: var(--container);
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,42 +18,45 @@
     align-items: center;
     gap: 0.8rem;
     color: var(--muted);
-    font-size: 0.88rem;
+    font-size: 1.05rem;
   }
 
   &__logo {
     display: grid;
     place-items: center;
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 0.6rem;
-    border: var(--line) solid color-mix(in srgb, var(--petrol-bright) 45%, var(--petrol));
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.8rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    border: var(--line) solid var(--cyan);
+    background: var(--cyan);
     color: var(--bg);
-    background: var(--gradient);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
   }
 
   &__top {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    background: none;
-    border: var(--line) solid var(--border);
-    border-radius: 999px;
-    padding: 0.5rem 1rem;
-    color: var(--muted);
+    background: var(--surface);
+    border: var(--line) solid var(--border-strong);
+    padding: 0.4rem 0.9rem;
+    color: var(--text);
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     cursor: pointer;
+    box-shadow: var(--shadow-sm);
     transition:
-      color 0.2s ease,
-      border-color 0.2s ease;
+      color 0.1s steps(2),
+      background 0.1s steps(2);
 
     &:hover {
-      color: var(--petrol);
-      border-color: color-mix(in srgb, var(--petrol) 50%, var(--border));
+      color: var(--bg);
+      background: var(--cyan);
+      transform: translate(2px, 2px);
+      box-shadow: none;
     }
   }
 }

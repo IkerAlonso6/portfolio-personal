@@ -1,5 +1,5 @@
 <section id="skills" class="section reveal" appReveal [appRevealThreshold]="0.01">
-  <div [appParallax]="0.05">
+  <div>
     <header class="section-heading">
       <span class="section-heading__label">02 · {{ t()('nav.skills') }}</span>
       <h2 class="section-heading__title">{{ t()('skills.title') }}</h2>
@@ -7,12 +7,11 @@
     </header>
   </div>
 
-  <div class="skills" [appParallax]="0.03">
+  <div class="skills">
     @for (group of groups; track group.id; let i = $index) {
       <article
         class="skill-card reveal"
         [class.skill-card--alt]="i % 2 === 1"
-        appTilt
         appReveal
         [appRevealDelay]="i * 90"
       >

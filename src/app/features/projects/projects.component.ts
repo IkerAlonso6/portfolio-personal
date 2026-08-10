@@ -2,14 +2,12 @@ import { Component, effect, inject, signal, viewChild, type ElementRef } from '@
 import { I18nService } from '../../core/services/i18n.service';
 import { FEATURED_PROJECTS } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
-import { ParallaxDirective } from '../../core/directives/parallax.directive';
-import { TiltDirective } from '../../core/directives/tilt.directive';
 import { CarouselDirective } from '../../core/directives/carousel.directive';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RevealDirective, ParallaxDirective, TiltDirective, CarouselDirective],
+  imports: [RevealDirective, CarouselDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

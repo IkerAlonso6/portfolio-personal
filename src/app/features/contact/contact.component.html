@@ -1,5 +1,5 @@
 <section id="contact" class="section reveal" appReveal [appRevealThreshold]="0.01">
-  <div [appParallax]="0.05">
+  <div>
     <header class="section-heading">
       <span class="section-heading__label">05 · {{ t()('nav.contact') }}</span>
       <h2 class="section-heading__title">{{ t()('contact.title') }}</h2>
@@ -7,7 +7,7 @@
   </div>
 
   <div class="contact">
-    <div [appParallax]="0.05">
+    <div>
       <div class="contact__icons reveal" appReveal [appRevealDelay]="80">
         @for (item of items; track item.id; let i = $index) {
           <a
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div [appParallax]="0.04">
+    <div>
       <div class="contact__cta reveal" appReveal [appRevealDelay]="140">
         <p class="contact__cta-title">{{ t()('contact.subtitle') }}</p>
         <a class="btn btn--primary" [href]="'mailto:' + email">

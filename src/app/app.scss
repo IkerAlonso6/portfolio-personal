@@ -9,36 +9,38 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 8px;
   z-index: 200;
   pointer-events: none;
+  border-bottom: var(--line) solid var(--border);
 
   &__bar {
     display: block;
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--petrol), var(--petrol-bright));
-    box-shadow: 0 0 12px rgba(62, 207, 142, 0.6);
+    background: var(--cyan);
+    box-shadow: var(--shadow-sm);
   }
 }
 
-.cursor-glow {
+.crt {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 999;
   pointer-events: none;
   background:
-    radial-gradient(
-      480px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(62, 207, 142, 0.14),
-      transparent 65%
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.22) 0px,
+      rgba(0, 0, 0, 0.22) 1px,
+      transparent 1px,
+      transparent 4px
     ),
     radial-gradient(
-      260px circle at var(--mx, 50vw) var(--my, 20vh),
-      rgba(113, 239, 179, 0.12),
-      transparent 70%
+      ellipse at center,
+      transparent 60%,
+      rgba(0, 0, 0, 0.32) 100%
     );
-  mix-blend-mode: screen;
 }
 
 router-outlet + * {
