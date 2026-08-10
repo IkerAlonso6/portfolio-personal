@@ -22,28 +22,3 @@
     box-shadow: var(--shadow-sm);
   }
 }
-
-.crt {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.22) 0px,
-      rgba(0, 0, 0, 0.22) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    radial-gradient(
-      ellipse at center,
-      transparent 60%,
-      rgba(0, 0, 0, 0.32) 100%
-    );
-}
-
-router-outlet + * {
-  position: relative;
-  z-index: 1;
-}

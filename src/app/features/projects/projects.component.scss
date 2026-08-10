@@ -32,7 +32,6 @@
   &__stage {
     position: relative;
     height: 520px;
-    will-change: transform, height;
     transition:
       transform 0.35s steps(8),
       height 0.3s steps(4);
@@ -71,7 +70,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    will-change: transform;
   }
 
   &__header {

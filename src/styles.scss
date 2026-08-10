@@ -1,13 +1,13 @@
 :root {
   --bg: #12124d;
-  --bg-2: #1d1d7c;
-  --bg-3: #2b2ba6;
-  --surface: #24249a;
-  --surface-2: #3232b8;
+  --bg-2: #24249b;
+  --bg-3: #3434b8;
+  --surface: #20208e;
+  --surface-2: #2c2cb2;
   --border: #7e7eec;
   --border-strong: #c0c0ff;
-  --text: #e2fbff;
-  --muted: #b7d2ff;
+  --text: #ecfcff;
+  --muted: #cfe1ff;
   --cyan: #8ff7ff;
   --cyan-deep: #4aa7c8;
   --white: #ffffff;
@@ -48,8 +48,13 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: none;
   image-rendering: pixelated;
+}
+
+router-outlet + * {
+  position: relative;
+  z-index: 1;
 }
 
 ::selection {
@@ -82,6 +87,7 @@ button {
   max-width: var(--container);
   margin: 0 auto;
   padding: 5rem 1.5rem;
+  background: var(--bg);
 }
 
 .section-heading {
@@ -110,7 +116,7 @@ button {
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    text-shadow: 3px 3px 0 var(--bg-3), 6px 6px 0 rgba(0, 0, 0, 0.55);
+    text-shadow: 2px 2px 0 var(--bg-3);
   }
 
   &__subtitle {
@@ -192,14 +198,10 @@ button {
 
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 0.18s steps(4),
-    transform 0.18s steps(4);
+  transition: opacity 0.18s steps(4);
 
   &.revealed {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -235,7 +237,6 @@ button {
 
   .reveal {
     opacity: 1;
-    transform: none;
     transition: none;
   }
 
