@@ -1,0 +1,21 @@
+<section id="work" class="section reveal" appReveal [appRevealThreshold]="0.01">
+  <div [appParallax]="0.05">
+    <header class="section-heading">
+      <span class="section-heading__label">{{ sectionNumber }} · {{ t()('nav.work') }}</span>
+      <h2 class="section-heading__title">{{ t()('work.title') }}</h2>
+      <p class="section-heading__subtitle">{{ t()('work.subtitle') }}</p>
+    </header>
+  </div>
+
+  <div class="work" [appParallax]="0.03">
+    @for (practice of practices; track practice.title; let i = $index) {
+      <article class="practice-card reveal" appTilt appReveal [appRevealDelay]="i * 80">
+        <span class="practice-card__icon" aria-hidden="true">{{ practice.icon }}</span>
+        <div class="practice-card__content">
+          <h3 class="practice-card__title">{{ tr()(practice.title) }}</h3>
+          <p class="practice-card__description">{{ tr()(practice.description) }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

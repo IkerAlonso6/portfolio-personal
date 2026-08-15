@@ -1,22 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
-import { ABOUT_FACTS, sectionNumber } from '../../core/data/profile.data';
+import { sectionNumber, WORK_PRACTICES } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
 import { ParallaxDirective } from '../../core/directives/parallax.directive';
 import { TiltDirective } from '../../core/directives/tilt.directive';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-work',
   standalone: true,
   imports: [RevealDirective, ParallaxDirective, TiltDirective],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './work.component.html',
+  styleUrl: './work.component.scss'
 })
-export class AboutComponent {
+export class WorkComponent {
   private readonly i18n = inject(I18nService);
   readonly t = this.i18n.t;
   readonly tr = this.i18n.tr;
-  readonly facts = ABOUT_FACTS;
-  readonly paragraphs = ['about.p1', 'about.p2', 'about.p3'];
-  readonly sectionNumber = sectionNumber('about');
+  readonly practices = WORK_PRACTICES;
+  readonly sectionNumber = sectionNumber('work');
 }

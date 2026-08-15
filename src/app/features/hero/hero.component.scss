@@ -72,6 +72,44 @@
     margin-top: 2.2rem;
   }
 
+  &__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4rem 2.6rem;
+    margin: 3rem 0 0;
+    padding: 1.6rem 0 0;
+    border-top: var(--line) solid var(--border);
+    width: 100%;
+    max-width: 46rem;
+  }
+
+  &__metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 7rem;
+  }
+
+  &__metric-value {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--petrol-bright);
+  }
+
+  &__metric-label {
+    margin: 0;
+    max-width: 11rem;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
   &__scroll {
     position: absolute;
     bottom: 1.8rem;

@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
-import { SKILL_GROUPS } from '../../core/data/profile.data';
+import { sectionNumber, SKILL_GROUPS } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
 import { ParallaxDirective } from '../../core/directives/parallax.directive';
 import { TiltDirective } from '../../core/directives/tilt.directive';
@@ -17,6 +17,7 @@ export class SkillsComponent {
   readonly t = this.i18n.t;
   readonly tr = this.i18n.tr;
   readonly groups = SKILL_GROUPS;
+  readonly sectionNumber = sectionNumber('skills');
 
   private readonly failedLogos = signal(new Set<string>());
 

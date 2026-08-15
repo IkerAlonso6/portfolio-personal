@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
-import { COURSES, EDUCATION } from '../../core/data/profile.data';
+import { COURSES, EDUCATION, sectionNumber } from '../../core/data/profile.data';
 import { RevealDirective } from '../../core/directives/reveal.directive';
 import { ParallaxDirective } from '../../core/directives/parallax.directive';
 import { TiltDirective } from '../../core/directives/tilt.directive';
@@ -18,4 +18,5 @@ export class EducationComponent {
   readonly tr = this.i18n.tr;
   readonly education = EDUCATION;
   readonly courses = COURSES;
+  readonly sectionNumber = sectionNumber('education');
 }

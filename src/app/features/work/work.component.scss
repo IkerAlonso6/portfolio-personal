@@ -1,0 +1,59 @@
+.work {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1.2rem;
+}
+
+.practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1.7rem 1.5rem;
+  border-radius: 1.4rem;
+  background: var(--surface);
+  border: var(--line) solid var(--border);
+  transform-style: preserve-3d;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--petrol) 50%, var(--border));
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--petrol) 14%, transparent);
+    border: var(--line) solid color-mix(in srgb, var(--petrol) 45%, var(--border));
+    color: var(--petrol-bright);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+}

@@ -21,7 +21,21 @@
         <a class="btn btn--ghost" (click)="scrollTo('contact')">
           {{ t()('hero.ctaContact') }}
         </a>
+        @if (profile.cvAvailable) {
+          <a class="btn btn--ghost" [href]="profile.cvPath" download>
+            {{ t()('hero.ctaCv') }}
+          </a>
+        }
       </div>
+
+      <dl class="hero__metrics">
+        @for (metric of metrics; track metric.label) {
+          <div class="hero__metric">
+            <dt class="hero__metric-value">{{ metric.value }}</dt>
+            <dd class="hero__metric-label">{{ tr()(metric.label) }}</dd>
+          </div>
+        }
+      </dl>
     </div>
   </div>
 

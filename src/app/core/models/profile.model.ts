@@ -5,9 +5,19 @@ export interface Bilingual<T = string> {
   en: T;
 }
 
+export type ProjectCategory = 'fullstack' | 'backend' | 'frontend' | 'desktop';
+
+export type ProjectLinkType = 'repo' | 'demo' | 'docs';
+
 export interface ProjectLink {
   label: Bilingual;
   url: string;
+  type: ProjectLinkType;
+}
+
+export interface ProjectMetric {
+  value: string;
+  label: Bilingual;
 }
 
 export interface Project {
@@ -15,12 +25,29 @@ export interface Project {
   name: Bilingual | string;
   tagline: Bilingual;
   description: Bilingual;
+  problem?: Bilingual;
+  role?: Bilingual;
+  category: ProjectCategory;
+  featured: boolean;
+  metrics?: ProjectMetric[];
   highlights: Bilingual[];
   stack: string[];
   links: ProjectLink[];
+  note?: Bilingual;
   year: string;
   accent: string;
   initials: string;
+}
+
+export interface WorkPractice {
+  icon: string;
+  title: Bilingual;
+  description: Bilingual;
+}
+
+export interface HeroMetric {
+  value: string;
+  label: Bilingual;
 }
 
 export interface Skill {

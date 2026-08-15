@@ -1,6 +1,6 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
-import { PROFILE } from '../../core/data/profile.data';
+import { PROFILE, SECTION_ORDER } from '../../core/data/profile.data';
 import { ScrollService } from '../../core/services/scroll.service';
 
 @Component({
@@ -19,13 +19,7 @@ export class NavbarComponent {
   readonly open = signal(false);
   readonly scrolled = signal(false);
 
-  readonly links = [
-    { href: 'about', key: 'nav.about' },
-    { href: 'skills', key: 'nav.skills' },
-    { href: 'projects', key: 'nav.projects' },
-    { href: 'education', key: 'nav.education' },
-    { href: 'contact', key: 'nav.contact' }
-  ];
+  readonly links = SECTION_ORDER.map((id) => ({ href: id, key: `nav.${id}` }));
 
   constructor() {
     effect(() => {

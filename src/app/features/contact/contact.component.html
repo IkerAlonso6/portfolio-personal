@@ -1,7 +1,7 @@
 <section id="contact" class="section reveal" appReveal [appRevealThreshold]="0.01">
   <div [appParallax]="0.05">
     <header class="section-heading">
-      <span class="section-heading__label">05 · {{ t()('nav.contact') }}</span>
+      <span class="section-heading__label">{{ sectionNumber }} · {{ t()('nav.contact') }}</span>
       <h2 class="section-heading__title">{{ t()('contact.title') }}</h2>
     </header>
   </div>
@@ -41,9 +41,16 @@
     <div [appParallax]="0.04">
       <div class="contact__cta reveal" appReveal [appRevealDelay]="140">
         <p class="contact__cta-title">{{ t()('contact.subtitle') }}</p>
-        <a class="btn btn--primary" [href]="'mailto:' + email">
-          {{ t()('contact.send') }}
-        </a>
+        <div class="contact__cta-actions">
+          <a class="btn btn--primary" [href]="'mailto:' + email">
+            {{ t()('contact.send') }}
+          </a>
+          @if (profile.cvAvailable) {
+            <a class="btn btn--ghost" [href]="profile.cvPath" download>
+              {{ t()('contact.cv') }}
+            </a>
+          }
+        </div>
       </div>
     </div>
   </div>
